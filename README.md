@@ -15,7 +15,7 @@ if not download it from python's official site. Here's the link: https://www.pyt
 Now, for installing django let's not disturb the entire system. Instead create a virtual environment and install django inside that environment. 
 
  a) Installing the virtual environment wrapper.  
- command: pip install virtualenvwrapper-win
+ command: pip install virtualenvwrapper-win <br>
  b) Creating the environment.
  command: mkvirtualenv THENAMEYOUWANTTOGIVE
  
