@@ -19,7 +19,7 @@ Now, for installing django let's not disturb the entire system. Instead create a
  b) Creating the environment.
  command: mkvirtualenv THENAMEYOUWANTTOGIVE
  
-  N.B: for entering into the virtual environment anytime from cmd use the command : activate OR use the command: workon THENAMEYOUWANTTOGIVE
+  N.B: for entering into the virtual environment anytime from cmd use the command : path_of_your_virtual_environment\Scripts\activate OR use the command: workon THENAMEYOUWANTTOGIVE
   
  c) installing django.
  command: pip install django
