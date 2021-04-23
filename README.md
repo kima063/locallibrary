@@ -1,6 +1,9 @@
-# locallibrary
+Django Local Library
+---------------------------------------------------------------------------------------------------------------------------
+For detailed information about this project go to this link: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Tutorial_local_library_website
+--------------------------------------------------------------------------------------------------------------------------
 Setting up a Django development environment
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 
 I did this using Windows. So here goes the setup for windows 10.
 
@@ -27,3 +30,8 @@ Now, for installing django let's not disturb the entire system. Instead create a
   N.B: Django is now installed in your virtual environment, not in your whole system.
 
 Now, the virtual environment and django set up is done, and one is good to go! Cheers!
+
+---------------------------------------------------------------------------------------------------------
+
+Setting up the Project
+_________________________________________________________________________________________________________

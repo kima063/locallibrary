@@ -11,12 +11,16 @@ admin.site.register(Genre)
 
 
 def display_genre(self):
-        # """Create a string for the Genre. This is required to display genre in Admin."""
-        return ', '.join(genre.name for genre in self.genre.all()[:3])
+    # """Create a string for the Genre. This is required to display genre in Admin."""
+    return ', '.join(genre.name for genre in self.genre.all()[:3])
+
+
 display_genre.short_description = 'Genre'
 
+
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('last_name', 'first_name', 'date_of_birth', 'date_of_death')
+    list_display = ('last_name', 'first_name',
+                    'date_of_birth', 'date_of_death')
     fields = ['first_name', 'last_name', ('date_of_birth', 'date_of_death')]
 
 
@@ -24,10 +28,10 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(Author, AuthorAdmin)
 
 
-
 # Register the Admin classes for Book using the decorator
 class BooksInstanceInline(admin.TabularInline):
     model = BookInstance
+
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
