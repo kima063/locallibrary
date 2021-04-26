@@ -36,18 +36,17 @@ Now, the virtual environment and django set up is done, and one is good to go! C
 Setting up the Project
 ------------------------------------------------------------------------------------------------------
 After cloning run these command:
-1. python manage.py makemigrations
-2. python manage.py migrate
-3. python manage.py migrate --run-syncdb
+1. pip3 install -r requirements.txt
+2. python manage.py makemigrations
+3. python manage.py migrate
+4. python manage.py collectstatic
+5. python manage.py test # Run the standard tests. These should all pass.
+6. python manage.py createsuperuser # Create a superuser
+7. python manage.py runserver
 
-You will be asked to create a superuser by giving an email address, username and password. Do that.
+After these,
+Open a browser to http://127.0.0.1:8000/admin/ to open the admin site
+Create a few test objects of each type.
+Open tab to http://127.0.0.1:8000 to see the main site, with your new objects.
 
-**Command to run the server: python manage.py runserver
-
-Now, you can use that superuser to login and create other user from the admin page. link: http://127.0.0.1:8000/admin/
-The catalog page's link: http://127.0.0.1:8000/catalog/
-
---------------------------------------------------------------------------------------------------------------------------------
-Commad for running the test files:
- 1. python manage.py test
- 2. python manage.py collectstatic
+And, it's Done!
