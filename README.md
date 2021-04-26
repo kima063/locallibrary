@@ -39,3 +39,15 @@ After cloning run these command:
 1. python manage.py makemigrations
 2. python manage.py migrate
 3. python manage.py migrate --run-syncdb
+
+You will be asked to create a superuser by giving an email address, username and password. Do that.
+
+**Command to run the server: python manage.py runserver
+
+Now, you can use that superuser to login and create other user from the admin page. link: http://127.0.0.1:8000/admin/
+The catalog page's link: http://127.0.0.1:8000/catalog/
+
+--------------------------------------------------------------------------------------------------------------------------------
+Commad for running the test files:
+ 1. python manage.py test
+ 2. python manage.py collectstatic
