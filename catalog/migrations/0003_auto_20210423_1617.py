@@ -14,8 +14,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Language',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(help_text="Enter the book's natural language (e.g. English, French, Japanese etc.)", max_length=200)),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(
+                    help_text="Enter the book's natural language (e.g. English, French, Japanese etc.)", max_length=200)),
             ],
         ),
         migrations.AlterModelOptions(
@@ -24,7 +26,8 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterModelOptions(
             name='bookinstance',
-            options={'ordering': ['due_back'], 'permissions': (('can_mark_returned', 'Set book as returned'),)},
+            options={'ordering': ['due_back'], 'permissions': (
+                ('can_mark_returned', 'Set book as returned'),)},
         ),
         migrations.AlterField(
             model_name='author',
@@ -34,31 +37,37 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='author',
             name='id',
-            field=models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            field=models.AutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
         ),
         migrations.AlterField(
             model_name='book',
             name='id',
-            field=models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            field=models.AutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
         ),
         migrations.AlterField(
             model_name='bookinstance',
             name='status',
-            field=models.CharField(blank=True, choices=[('d', 'Maintenance'), ('o', 'On loan'), ('a', 'Available'), ('r', 'Reserved')], default='d', help_text='Book availability', max_length=1),
+            field=models.CharField(blank=True, choices=[('d', 'Maintenance'), ('o', 'On loan'), (
+                'a', 'Available'), ('r', 'Reserved')], default='d', help_text='Book availability', max_length=1),
         ),
         migrations.AlterField(
             model_name='genre',
             name='id',
-            field=models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            field=models.AutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
         ),
         migrations.AlterField(
             model_name='genre',
             name='name',
-            field=models.CharField(help_text='Enter a book genre (e.g. Science Fiction, French Poetry etc.)', max_length=200),
+            field=models.CharField(
+                help_text='Enter a book genre (e.g. Science Fiction, French Poetry etc.)', max_length=200),
         ),
         migrations.AddField(
             model_name='book',
             name='language',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='catalog.language'),
+            field=models.ForeignKey(
+                null=True, on_delete=django.db.models.deletion.SET_NULL, to='catalog.language'),
         ),
     ]
