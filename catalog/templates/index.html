@@ -1,19 +1,16 @@
-{% extends "base_generic.html" %}
-
-{% block content %}
+{% extends "base_generic.html" %} {% block content %}
 <div style="margin-top: 10px;">
-<h1>Welcome to LocalLibrary</h1>
-<h3>Local Library Home</h3>
-<!-- <h2>Dynamic content</h2> -->
+    <h3>Local Library Home</h3>
+    <!-- <h2>Dynamic content</h2> -->
 
-<p>The library has the following record counts:</p>
-<ul>
-  <li><strong>Books:</strong> {{ num_books }}</li>
-  <li><strong>Copies:</strong> {{ num_instances }}</li>
-  <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
-  <li><strong>Authors:</strong> {{ num_authors }}</li>
-</ul>
+    <p>The library has the following record counts:</p>
+    <ul>
+        <li><strong>Books:</strong> {{ num_books }}</li>
+        <li><strong>Copies:</strong> {{ num_instances }}</li>
+        <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+        <li><strong>Authors:</strong> {{ num_authors }}</li>
+    </ul>
 
-<p> <em> You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}. </em></p>
+    <p> <em> You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}. </em></p>
 </div>
 {% endblock %}
