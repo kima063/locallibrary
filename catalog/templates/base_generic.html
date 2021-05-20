@@ -55,12 +55,12 @@
                 </ul>
                 {% endif %} {% endblock %}
 
-
+                {% if user.is_authenticated %}
                 <li>
                     <strong>Add New</strong>
                 </li>
                 <ul class="sidebar-nav">
-                    {% if user.is_authenticated %}
+                    
                     <li><a href="{% url 'author-create' %}">Authors</a></li>
                     <!-- <li><a href="{% url 'index' %}">Book Instances</a></li> -->
                     <li><a href="{% url 'books' %}">Books</a></li>
