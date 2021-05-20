@@ -1,9 +1,10 @@
 .sidebar-nav {
-    padding: 2px;
+    margin-top: 10px;
 
 }
 
-.sidebar-subtitle {
-    padding: 5px;
-
+li{
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
+
