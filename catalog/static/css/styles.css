@@ -1,11 +1,9 @@
 .sidebar-nav {
-    padding: 0;
+    padding: 2px;
+
 }
 
 .sidebar-subtitle {
-    margin-bottom: .5rem;
-    padding-left: 5px;
-}
-li{
-    list-style: none;
+    padding: 5px;
+
 }
