@@ -18,14 +18,17 @@
 
 <body>
     <div class="alert alert-primary" role="alert">
-        <h2>Welcome to Local Library!</h2>
+        <a href="{% url 'index' %}"> <h2>Welcome to Local Library!</h2></a>
     </div>
 
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-2 sidebar-nav">
                 {% block sidebar %}
+                <li class="sidebar-subtitle">
+                    <strong>Browse</strong>
+                </li>
                 <ul class="sidebar-nav">
                     <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'books' %}">All books</a></li>
@@ -51,6 +54,21 @@
                     {% endif %}
                 </ul>
                 {% endif %} {% endblock %}
+
+
+                <li class="sidebar-subtitle">
+                    <strong>Add New</strong>
+                </li>
+                <ul class="sidebar-nav">
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'author-create' %}">Authors</a></li>
+                    <!-- <li><a href="{% url 'index' %}">Book Instances</a></li> -->
+                    <li><a href="{% url 'books' %}">Books</a></li>
+                    <!-- <li><a href="{% url 'index' %}">Genres</a></li> -->
+                    {% endif %}
+                </ul>
+
+
             </div>
             <div class="col-sm-10 ">
                 {% block content %}{% endblock %} {% block pagination %} {% if is_paginated %}
