@@ -1,11 +1,8 @@
 .sidebar-nav {
-    min-height: 100vh;
-    background-color: #3792cb;
     padding: 0;
 }
 
 .sidebar-subtitle {
-    color: #2f89c2;
     margin-bottom: .5rem;
     padding-left: 5px;
 }
