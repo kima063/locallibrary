@@ -24,7 +24,7 @@ class Genre(models.Model):
 # class Language(models.Model):
 #     """Model representing a Language (e.g. English, French, Japanese, etc.)"""
 #     name = models.CharField(max_length=200,
-#                             help_text="Enter the book's natural language (e.g. English, French, Japanese etc.)")
+#                             help_text="Enter the book's natural language (e.g. English, French, Bengali etc.)")
 
 #     def __str__(self):
 #         """String for representing the Model object (in Admin site etc.)"""
@@ -47,7 +47,7 @@ class Book(models.Model):
         Genre, help_text="Select a genre for this book")
     # ManyToManyField used because a genre can contain many books and a Book can cover many genres.
     # Genre class has already been defined so we can specify the object above.
-    # language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True)
+    language = models.CharField(max_length=200)
 
     class Meta:
         ordering = ['title', 'author']
@@ -57,6 +57,13 @@ class Book(models.Model):
         return ', '.join([genre.name for genre in self.genre.all()[:3]])
 
     display_genre.short_description = 'Genre'
+
+    # def display_language(self):
+    #     """Creates a string for the language. This is required to display languagein Admin."""
+    #     return ', '.join([language.name for language in self.language.all()[:3]])
+
+    # display_genre.short_description = 'Language'
+
 
     def get_absolute_url(self):
         """Returns the url to access a particular book instance."""
@@ -117,6 +124,8 @@ class Author(models.Model):
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField('died', null=True, blank=True)
+    biography = models.TextField(
+    max_length=1000, help_text="Enter a brief description about the author")
 
     class Meta:
         ordering = ['last_name', 'first_name']
