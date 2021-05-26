@@ -20,17 +20,6 @@ class Genre(models.Model):
         """String for representing the Model object (in Admin site etc.)"""
         return self.name
 
-
-# class Language(models.Model):
-#     """Model representing a Language (e.g. English, French, Japanese, etc.)"""
-#     name = models.CharField(max_length=200,
-#                             help_text="Enter the book's natural language (e.g. English, French, Bengali etc.)")
-
-#     def __str__(self):
-#         """String for representing the Model object (in Admin site etc.)"""
-#         return self.name
-
-
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
     title = models.CharField(max_length=200)
@@ -47,7 +36,6 @@ class Book(models.Model):
         Genre, help_text="Select a genre for this book")
     # ManyToManyField used because a genre can contain many books and a Book can cover many genres.
     # Genre class has already been defined so we can specify the object above.
-    language = models.CharField(max_length=200)
 
     class Meta:
         ordering = ['title', 'author']
@@ -57,12 +45,6 @@ class Book(models.Model):
         return ', '.join([genre.name for genre in self.genre.all()[:3]])
 
     display_genre.short_description = 'Genre'
-
-    # def display_language(self):
-    #     """Creates a string for the language. This is required to display languagein Admin."""
-    #     return ', '.join([language.name for language in self.language.all()[:3]])
-
-    # display_genre.short_description = 'Language'
 
 
     def get_absolute_url(self):
