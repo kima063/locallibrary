@@ -11,15 +11,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='Language',
-            fields=[
-                ('id', models.AutoField(auto_created=True,
-                 primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(
-                    help_text="Enter the book's natural language (e.g. English, French, Japanese etc.)", max_length=200)),
-            ],
-        ),
         migrations.AlterModelOptions(
             name='book',
             options={'ordering': ['title', 'author']},
@@ -63,11 +54,5 @@ class Migration(migrations.Migration):
             name='name',
             field=models.CharField(
                 help_text='Enter a book genre (e.g. Science Fiction, French Poetry etc.)', max_length=200),
-        ),
-        migrations.AddField(
-            model_name='book',
-            name='language',
-            field=models.ForeignKey(
-                null=True, on_delete=django.db.models.deletion.SET_NULL, to='catalog.language'),
         ),
     ]

@@ -10,10 +10,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='book',
-            name='language',
-        ),
         migrations.AlterField(
             model_name='author',
             name='id',
@@ -31,8 +27,5 @@ class Migration(migrations.Migration):
             name='id',
             field=models.BigAutoField(
                 auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
-        ),
-        migrations.DeleteModel(
-            name='Language',
         ),
     ]
