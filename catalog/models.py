@@ -9,19 +9,19 @@ from django.db import models
 from django.urls import reverse  # To generate URLS by reversing URL patterns
 
 ##for uploading image in the book detail section
-# from versatileimagefield.fields import VersatileImageField, PPOIField
+from versatileimagefield.fields import VersatileImageField, PPOIField
 
 
 class Image(models.Model):
-    image = models.ImageField(
+    image = VersatileImageField(
         'Image',
         upload_to='images/',
-        # ppoi_field='image_ppoi'
+        ppoi_field='image_ppoi'
     )
-    # image_ppoi = PPOIField()
+    image_ppoi = PPOIField()
 
     # def __str__(self):
-    #     return self
+    #     return self.name
 
 
 class Genre(models.Model):
