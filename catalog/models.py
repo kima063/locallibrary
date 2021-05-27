@@ -8,6 +8,21 @@ from django.db import models
 
 from django.urls import reverse  # To generate URLS by reversing URL patterns
 
+##for uploading image in the book detail section
+# from versatileimagefield.fields import VersatileImageField, PPOIField
+
+
+class Image(models.Model):
+    image = models.ImageField(
+        'Image',
+        upload_to='images/',
+        # ppoi_field='image_ppoi'
+    )
+    # image_ppoi = PPOIField()
+
+    # def __str__(self):
+    #     return self
+
 
 class Genre(models.Model):
     """Model representing a book genre (e.g. Science Fiction, Non Fiction)."""
@@ -22,6 +37,7 @@ class Genre(models.Model):
 
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
+    image = models.ManyToManyField(Image, related_name='images')
     title = models.CharField(max_length=200)
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
     # Foreign Key used because book can only have one author, but authors can have multiple books
@@ -36,6 +52,7 @@ class Book(models.Model):
         Genre, help_text="Select a genre for this book")
     # ManyToManyField used because a genre can contain many books and a Book can cover many genres.
     # Genre class has already been defined so we can specify the object above.
+    language = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
         ordering = ['title', 'author']
@@ -107,7 +124,7 @@ class Author(models.Model):
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField('died', null=True, blank=True)
     biography = models.TextField(
-    max_length=1000, help_text="Enter a brief description about the author")
+    max_length=1000, null=True, blank=True, help_text="Enter a brief description about the author")
 
     class Meta:
         ordering = ['last_name', 'first_name']
@@ -119,3 +136,4 @@ class Author(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return '{0}, {1}'.format(self.last_name, self.first_name)
+

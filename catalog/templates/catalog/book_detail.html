@@ -1,13 +1,14 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
+{% load static %}
 <h1>Title: {{ book.title }}</h1>
-
+<p><strong>Book Cover:</strong> <br> <img src="{{book.image.url}}"></p>
 <p><strong>Author:</strong> <a href="{{ book.author.get_absolute_url }}">{{ book.author }}</a></p>
 <p><strong>Summary:</strong> {{ book.summary }}</p>
 <p><strong>ISBN:</strong> {{ book.isbn }}</p>
 <p><strong>Genre:</strong> {{ book.genre.all|join:", " }}</p>
+<p><strong>Language:</strong> {{ book.language }}</p>
 
 <div style="margin-left:20px;margin-top:20px">
   {% if book.bookinstance_set.all %}
