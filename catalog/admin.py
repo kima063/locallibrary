@@ -54,9 +54,3 @@ class BookInstanceAdmin(admin.ModelAdmin):
             'fields': ('status', 'due_back', 'borrower')
         }),
     )
-
-
-
-from .models import Image
-
-admin.site.register(Image)

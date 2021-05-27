@@ -9,19 +9,15 @@ from django.db import models
 from django.urls import reverse  # To generate URLS by reversing URL patterns
 
 ##for uploading image in the book detail section
-from versatileimagefield.fields import VersatileImageField, PPOIField
 
 
-class Image(models.Model):
-    image = VersatileImageField(
-        'Image',
-        upload_to='images/',
-        ppoi_field='image_ppoi'
-    )
-    image_ppoi = PPOIField()
+# class Image(models.Model):
+#     image = models.ImageField(
+#         'Image',
+#         upload_to='images/',
+#     )
 
-    # def __str__(self):
-    #     return self.name
+
 
 
 class Genre(models.Model):
@@ -37,7 +33,7 @@ class Genre(models.Model):
 
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
-    image = models.ManyToManyField(Image, related_name='images')
+    image = models.ImageField(null=True, blank=True)
     title = models.CharField(max_length=200)
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
     # Foreign Key used because book can only have one author, but authors can have multiple books
@@ -115,6 +111,7 @@ class BookInstance(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return '{0} ({1})'.format(self.id, self.book.title)
+
 
 
 class Author(models.Model):
