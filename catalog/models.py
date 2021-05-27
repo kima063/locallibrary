@@ -8,17 +8,6 @@ from django.db import models
 
 from django.urls import reverse  # To generate URLS by reversing URL patterns
 
-##for uploading image in the book detail section
-
-
-# class Image(models.Model):
-#     image = models.ImageField(
-#         'Image',
-#         upload_to='images/',
-#     )
-
-
-
 
 class Genre(models.Model):
     """Model representing a book genre (e.g. Science Fiction, Non Fiction)."""
