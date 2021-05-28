@@ -1,8 +1,9 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
-<!-- <p><img src="{{author.profile_picture.url}}"></p> -->
+<div>
+<img src="{{ author.profile_picture.url }}"> </div>
+<br>
 <h1>{{ author }} </h1>
 <p><strong>Born: </strong>{{author.date_of_birth}} <br>  
     {% if author.date_of_death %} <strong>Died: </strong> {{author.date_of_death}}

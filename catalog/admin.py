@@ -21,7 +21,7 @@ display_genre.short_description = 'Genre'
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name',
                     'date_of_birth', 'date_of_death', 'biography')
-    fields = ['first_name', 'last_name', ('date_of_birth', 'date_of_death'),'biography']
+    fields = ['profile_picture', 'first_name', 'last_name', ('date_of_birth', 'date_of_death'),'biography']
 
 
 # Register the admin class with the associated model
