@@ -2,33 +2,6 @@
 
 {% block content %}
 
-<!-- <img src="{{ author.profile_picture.url }}">
-<br>
-<h1>{{ author }} </h1>
-<p><strong>Born: </strong>{{author.date_of_birth}} <br>  
-    {% if author.date_of_death %} <strong>Died: </strong> {{author.date_of_death}}
-    {% else %}
-    <p></p>
-    {% endif %}</p>
-<p><strong>Author Biography:  </strong>  <br>{{ author.biography }}</p>
-
-<div style="margin-left:20px;margin-top:20px">
-
-    {% if author.book_set.all %}
-    <h4>Books</h4>
-
-    <dl>
-        {% for book in author.book_set.all %}
-        <dt><a href="{% url 'book-detail' book.pk %}">{{book}}</a> ({{book.bookinstance_set.all.count}})</dt>
-        <dd>{{book.summary}}</dd>
-        {% endfor %}
-    </dl>
-    {% else %}
-    <h5>No book of this author is added yet</h5>
-    {% endif %}
-
-</div> -->
-
 <div class="card mb-3" style="max-width: 1440px;">
     <div class="row no-gutters">
       <div class="col-md-4">
@@ -48,7 +21,7 @@
             <h4>Books</h4>
             <dl>
                 {% for book in author.book_set.all %}
-                <button type="button" class="btn btn-info"><a href="{% url 'book-detail' book.pk %}" style="color: white; font-weight: 700;">{{book}}</a>
+                <button type="button" class="badge badge-info"><a href="{% url 'book-detail' book.pk %}" style="color: white; font-weight: 700;">{{book}}</a>
                     <span class="badge badge-light"> {{book.bookinstance_set.all.count}}</span></button>
                 <dd>{{book.summary}}</dd>
                 {% endfor %}
