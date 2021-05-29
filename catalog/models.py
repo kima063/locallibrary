@@ -23,7 +23,7 @@ class Genre(models.Model):
 
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
-    image = models.ImageField(null=True, blank=True, default='default_book.png')
+    image = models.ImageField(null=True, blank=True, default='default_book.png', upload_to='images/')
     title = models.CharField(max_length=200)
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
     # Foreign Key used because book can only have one author, but authors can have multiple books
