@@ -23,7 +23,7 @@ class Genre(models.Model):
 
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
-    image = models.ImageField(null=True, blank=True, default='default_book.png', upload_to='images/')
+    image = models.ImageField(null=True, blank=True, default='images/default_book.png', upload_to='images/')
     title = models.CharField(max_length=200)
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
     # Foreign Key used because book can only have one author, but authors can have multiple books
@@ -117,7 +117,7 @@ class BookInstance(models.Model):
 
 class Author(models.Model):
     """Model representing an author."""
-    profile_picture = models.ImageField(help_text="Profile Picture", null=True, blank=True, default='default_author.jpg')
+    profile_picture = models.ImageField(help_text="Profile Picture", null=True, blank=True, default='images/default_author.jpg',  upload_to='images/')
 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
