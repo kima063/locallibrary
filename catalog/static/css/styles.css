@@ -58,7 +58,7 @@ body {
     color: #fff
 }
 
-.wrapper .sidebar .social_media {
+/* .wrapper .sidebar .social_media {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -77,7 +77,7 @@ body {
     color: #d0cfd4;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px
-}
+} */
 
 .wrapper .main_content {
     width: 100%;

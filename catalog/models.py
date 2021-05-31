@@ -21,9 +21,16 @@ class Genre(models.Model):
         """String for representing the Model object (in Admin site etc.)"""
         return self.name
 
+class Cover_Photo(models.Model):
+    name = models.CharField(max_length=100, null=True)
+    image = models.ImageField(upload_to='images/', blank=True, null=True, default='media/default_book.png')
+
+    def __str__(self):
+        return self.name
+
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
-    image = models.ImageField(null=True, blank=True, default='images/default_book.png', upload_to='images/')
+    image = models.ImageField(Cover_Photo, default='media/default_book.png')
     title = models.CharField(max_length=200)
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
     # Foreign Key used because book can only have one author, but authors can have multiple books
@@ -58,15 +65,6 @@ class Book(models.Model):
         """String for representing the Model object."""
         return self.title
 
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        img = Image.open(self.image.path)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300,300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
 
 import uuid  # Required for unique book instances
 from datetime import date
@@ -114,10 +112,14 @@ class BookInstance(models.Model):
 
 
 
+class Pro_Pic(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/', blank=True, null=True, default='media/default_author.jpg')
+
 
 class Author(models.Model):
     """Model representing an author."""
-    profile_picture = models.ImageField(help_text="Profile Picture", null=True, blank=True, default='images/default_author.jpg',  upload_to='images/')
+    profile_picture = models.ImageField(Pro_Pic, default='media/default_author.jpg')
 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -136,15 +138,4 @@ class Author(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return '{0}, {1}'.format(self.last_name, self.first_name)
-
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        img = Image.open(self.profile_picture.path)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300,300)
-            img.thumbnail(output_size)
-            img.save(self.profile_picture.path)
-
 
