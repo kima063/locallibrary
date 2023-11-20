@@ -1,3 +1,5 @@
+
+**CURRENTLY, THIS PROJECT IS REMOVED FROM IT'S PUBLIC DOMAIN"
 Django Local Library
 ---------------------------------------------------------------------------------------------------------------------------
 For detailed information about this project go to this link: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Tutorial_local_library_website
